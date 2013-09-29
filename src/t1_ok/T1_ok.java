@@ -98,15 +98,29 @@ public class T1_ok {
 
                 ano = Integer.parseInt(aux);
 
-                carro = new Record(num_chassi, nome, modelo, marca, ano);
-                hs.insert(carro);
-
-                voltar();
+                
+                
+                if(hs.validate_record(num_chassi) == 0){
+                    carro = new Record(num_chassi, nome, modelo, marca, ano);
+                    hs.insert(carro);
+                    voltar();
+                } else {
+                    System.out.println("Já existe um registro com esse número de chassi.");
+                    voltar();
+                }
+                
                 break;
             case "2":
                 System.out.println("=== PESQUISAR VEICULO ===");
-                System.out.print("Digite o número do chassi: ");
-                num_chassi = Integer.parseInt(escolha());
+                do {
+                    System.out.print("Número do Chassi (min. 3 Dígitos): ");
+                    aux = escolha();
+                    if (aux.length() < 3) {
+                        System.out.println("ERRO: Valor em formato errado.");
+                    }
+                } while (aux.length() < 3);
+                
+                num_chassi = Integer.parseInt(aux);
 
                 hs.search_record(num_chassi);
 
@@ -114,11 +128,23 @@ public class T1_ok {
                 break;
             case "3":
                 System.out.println("=== REMOVER VEICULO ===");
-                System.out.print("Digite o número do chassi: ");
-                num_chassi = Integer.parseInt(escolha());
 
-
-                hs.remove(num_chassi);
+                do {
+                    System.out.print("Número do Chassi (min. 3 Dígitos): ");
+                    aux = escolha();
+                    if (aux.length() < 3) {
+                        System.out.println("ERRO: Valor em formato errado.");
+                    }
+                } while (aux.length() < 3);
+                
+                num_chassi = Integer.parseInt(aux);
+                
+                if(hs.remove(num_chassi) == 1){
+                    System.out.println("Removido com sucesso");
+                } else {
+                    System.out.println("Registro não existe, nada foi feito");
+                }
+                
                 voltar();
                 break;
             case "4":
