@@ -22,6 +22,7 @@ public class T1_ok {
     public static void main(String[] args) {
 
         hs = new HashTable(10);
+        limpar_console();
         print_menu();
 
     }
@@ -37,17 +38,16 @@ public class T1_ok {
         functions(escolha());
     }
 
-    private static void limpar_console() {
-        try {
-            String os = System.getProperty("os.name");
+    static public void voltar() {
+        System.out.print("Pressione Enter para voltar ao menu");
+        escolha();
+        limpar_console();
+        print_menu();
+    }
 
-            if (os.contains("Windows")) {
-                Runtime.getRuntime().exec("cls");
-            } else {
-                Runtime.getRuntime().exec("clear");
-            }
-        } catch (Exception exception) {
-            //  Handle exception.
+    private static void limpar_console() {
+        for (int i = 0; i < 50; ++i) {
+            System.out.println();
         }
     }
 
@@ -58,8 +58,9 @@ public class T1_ok {
     }
 
     static public void functions(String escolha) {
+        limpar_console();
         String aux = null;
-        
+
         Record carro;
         int num_chassi, ano;
         String nome, modelo, marca;
@@ -67,39 +68,40 @@ public class T1_ok {
         switch (escolha) {
             case "1":
                 System.out.println("=== CADASTRAR NOVO VEÍCULO ===");
-                           
-                do{
+
+                do {
                     System.out.print("Número do Chassi (min. 3 Dígitos): ");
                     aux = escolha();
-                    if(aux.length() < 3){ System.out.println("ERRO: Valor em formato errado.");}
-                }while(aux.length() < 3 );
-                
+                    if (aux.length() < 3) {
+                        System.out.println("ERRO: Valor em formato errado.");
+                    }
+                } while (aux.length() < 3);
+
                 num_chassi = Integer.parseInt(aux);
-                
+
                 System.out.print("Nome: ");
                 nome = escolha();
-                
+
                 System.out.print("Modelo: ");
                 modelo = escolha();
-                
+
                 System.out.print("Marca: ");
                 marca = escolha();
-                
-                do{
-                    System.out.print("Ano: ");
+
+                do {
+                    System.out.print("Ano (YYYY): ");
                     aux = escolha();
-                    if(aux.length() < 4){ System.out.println("ERRO: Valor em formato errado.");}
-                }while(aux.length() < 4 );
-                
+                    if (aux.length() < 4) {
+                        System.out.println("ERRO: Valor em formato errado.");
+                    }
+                } while (aux.length() < 4);
+
                 ano = Integer.parseInt(aux);
 
                 carro = new Record(num_chassi, nome, modelo, marca, ano);
                 hs.insert(carro);
-                System.out.print("Pressione Enter para voltar ao menu.");
-                escolha();
-                
 
-                print_menu();
+                voltar();
                 break;
             case "2":
                 System.out.println("=== PESQUISAR VEICULO ===");
@@ -107,7 +109,8 @@ public class T1_ok {
                 num_chassi = Integer.parseInt(escolha());
 
                 hs.search_record(num_chassi);
-                print_menu();
+
+                voltar();
                 break;
             case "3":
                 System.out.println("=== REMOVER VEICULO ===");
@@ -116,13 +119,13 @@ public class T1_ok {
 
 
                 hs.remove(num_chassi);
-                print_menu();
+                voltar();
                 break;
             case "4":
                 System.out.println("=== LISTANDO ITENS CADASTRADOS ===");
-                
+
                 hs.print_hash_table();
-                print_menu();
+                voltar();
                 break;
             case "5":
                 System.out.println("=== VOLTE SEMPRE ===");

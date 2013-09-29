@@ -23,17 +23,22 @@ public class HashTable {
      */
     public class Bucket {
 
-        int tam;
         ArrayList<Record> records;
 
         public Bucket() {
             this.records = new ArrayList<>();
         }
-
+        
+        /*
+         Insere um objeto tipo record na lista.
+         */
         public void insert(Record record) {
             records.add(record);
         }
 
+        /*
+         Função para remover um Record, baseado no número do chassi.
+         */
         public void remove(int num_chassi) {
             for (int pos = 0; pos <= records.size() - 1; pos++) {
                 if (((Record) records.get(pos)).get_num_chassi() == num_chassi) {
@@ -142,6 +147,11 @@ public class HashTable {
         int hash = hash(num_chassi);
 
         Bucket b = buckets.get(hash);
+        
+        if(b == null){
+            System.out.println("Não existe um registro com esse Núm. Chassi.");
+            return;
+        }
 
         for (int pos = 0; pos <= b.get_records().size() - 1; pos++) {
             if (b.get_records().get(pos).get_num_chassi() == num_chassi) {
