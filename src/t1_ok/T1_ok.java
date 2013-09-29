@@ -33,6 +33,7 @@ public class T1_ok {
         System.out.println("2 - Procurar um veículo;");
         System.out.println("3 - Remover um veículo;");
         System.out.println("4 - Listar veículos no sistema.");
+        System.out.println("5 - Sair :(");
         functions(escolha());
     }
 
@@ -116,6 +117,15 @@ public class T1_ok {
 
                 hs.remove(num_chassi);
                 print_menu();
+                break;
+            case "4":
+                System.out.println("=== LISTANDO ITENS CADASTRADOS ===");
+                
+                hs.print_hash_table();
+                print_menu();
+                break;
+            case "5":
+                System.out.println("=== VOLTE SEMPRE ===");
                 break;
         }
     }
