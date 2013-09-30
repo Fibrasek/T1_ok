@@ -4,7 +4,6 @@
 
  Autores:
  João Gabriel P. Bellon
- Mário Esperança
 
  Disciplina:
  Estruturas de Dados 1
@@ -15,6 +14,7 @@ package t1_ok;
 
 public class Record {
 
+    //Chave da tabela Hash.
     private int num_chassi;
     private String nome;
     private String modelo;

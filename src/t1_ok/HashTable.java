@@ -4,7 +4,6 @@
 
  Autores:
  João Gabriel P. Bellon
- Mário Esperança
 
  Disciplina:
  Estruturas de Dados 1
@@ -179,6 +178,11 @@ public class HashTable {
         return 0;
     }
 
+    /*
+     Função utilizada para validar a existência de um registro
+     existente, no caso do cadastro. Para não haver duplicatas,
+     ou registros com valores fora do padrão.
+     */
     public int validate_record(int num_chassi) {
         int hash = hash(num_chassi);
 

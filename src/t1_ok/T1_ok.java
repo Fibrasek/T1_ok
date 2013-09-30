@@ -4,7 +4,6 @@
 
  Autores:
  João Gabriel P. Bellon
- Mário Esperança
 
  Disciplina:
  Estruturas de Dados 1
@@ -14,6 +13,7 @@
 package t1_ok;
 
 import java.util.Scanner;
+import t1_ok.HashTable;
 
 public class T1_ok {
 
@@ -30,10 +30,10 @@ public class T1_ok {
     static public void print_menu() {
         System.out.println("=== BEM VINDO AO SISTEMA DE CADASTRO ===");
         System.out.println("O que deseja fazer?");
-        System.out.println("1 - Cadastrar um novo veículo;");
-        System.out.println("2 - Procurar um veículo;");
-        System.out.println("3 - Remover um veículo;");
-        System.out.println("4 - Listar veículos no sistema.");
+        System.out.println("1 - Cadastrar um novo veiculo;");
+        System.out.println("2 - Procurar um veiculo;");
+        System.out.println("3 - Remover um veiculo;");
+        System.out.println("4 - Listar veiculos no sistema.");
         System.out.println("5 - Sair :(");
         functions(escolha());
     }
@@ -67,7 +67,7 @@ public class T1_ok {
 
         switch (escolha) {
             case "1":
-                System.out.println("=== CADASTRAR NOVO VEÍCULO ===");
+                System.out.println("=== CADASTRAR NOVO VEICULO ===");
 
                 do {
                     System.out.print("Número do Chassi (min. 3 Dígitos): ");
