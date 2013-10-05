@@ -14,7 +14,7 @@ package t1_ok;
 
 import java.util.ArrayList;
 
-public class HashTable {
+public class HashTable implements HashFunctions {
 
     /*
      Classe interna Bucket, que armazena os Records
@@ -76,6 +76,7 @@ public class HashTable {
      Calcula o hash do Record de acordo com a variavel num_chassi,
      utilizando do método do módulo (%) da divisão.
      */
+    @Override
     public int hash(Record record) {
         //Para montar o hash, utilizamos os 3 primeiro digitos do num_chassi.
         int x = Integer.parseInt((record.get_num_chassi() + "").substring(0, 2));
@@ -91,6 +92,7 @@ public class HashTable {
      Mesma função de hash, com a passagem do num_chassi direto.
      Função de conveniência, para busca e remoção.
      */
+    @Override
     public int hash(int num_chassi) {
         //Para montar o hash, utilizamos os 3 primeiro digitos do num_chassi.
         int x = Integer.parseInt((num_chassi + "").substring(0, 2));
