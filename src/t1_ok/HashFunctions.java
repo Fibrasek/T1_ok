@@ -1,13 +1,17 @@
 /*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
+ Trabalho:
+ Tabela Hash
+
+ Autores:
+ João Gabriel P. Bellon
+
+ Disciplina:
+ Estruturas de Dados 1
+
+ UTFPR - 2013
  */
 package t1_ok;
 
-/**
- *
- * @author fibrasek
- */
 public interface HashFunctions {
     public int hash(Record record);
     public int hash(int num_chassi);
